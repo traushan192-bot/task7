@@ -1,152 +1,223 @@
-.navbar{
+/* =========================
+   CSS VARIABLES
+   ========================= */
+:root {
+    --primary-color: #1ca3ff;
+    --primary-dark: #1588d9;
+    --bg-navbar: antiquewhite;
+    --text-main: #222;
+    --text-muted: #8fa0af;
+    --btn-radius: 16px;
+    --navbar-font-size: 20px;
+
+
+}
+
+/* =========================
+   GLOBAL RESET
+   ======================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* =======================
+   NAVBAR (FLEXBOX)
+   ========================= */
+.navbar {
     width: 100%;
     padding: 20px 50px;
-    background-color: antiquewhite;
-    font-size: 40;
+    background-color: var(--bg-navbar);
     border-bottom: 1px solid #f0f0f0;
+    display: flex;                 
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--navbar-font-size);
 }
 
-.nav-logo{
-    text-decoration: none;
-    display: inline-block;
-    width: 30%;
-    vertical-align: middle;
-}
 
-.nav-logo img{
-    height: 40px;
-    width: auto;
-    vertical-align: middle;
-    display: inline-block;
-}
-
- .nav-links {
-    display: inline-block;
-    width: 45%;             
-    text-align: center;     
-    list-style: none;       
-    vertical-align: middle;
-}  
-.nav-links li {
-    display: inline;    
-    margin: 0 15px;        
-}
-.nav-user {
-    display: inline-block;
-    width: 25%;            
-    text-align: right;     
-    vertical-align: middle;
-}
 .username-btn {
     display: inline-block;
     font-size: 14px;
     font-weight: 600;
-    color: #0099ff;          
-    background-color: #e6f4ff;    
-    padding: 12px 24px;      
-    border-radius: 12px;       
-   
+    color: #0099ff;
+    background-color: #e6f4ff;
+    padding: 12px 24px;
+    border-radius: 12px;
 }
 
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+}
+.nav-logo img {
+    height: 40px;
+    width: auto;
+}
+.nav-links li a:hover {
+    color: var(--primary-color);
+}
+
+
+.nav-user {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+/* =========================
+   HERO SECTION (DESKTOP)
+   ========================= */
 .hero {
     width: 100%;
-    height: 88vh; 
+    height: 88vh;
     padding: 0 5vw;
+    display: flex;            
+    align-items: center;
+    justify-content: space-between;
 }
-.cta-btn {
-    background-color: #1ca3ff;
-    color: white;
-    border: none;
-    padding: 16px 32px;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 16px;
-    cursor: pointer;
-    box-shadow: 0px 4px 15px rgba(28, 163, 255, 0.3);
+
+.hero-left {
+    width: 48%;
 }
-.cta-btn:hover {
-    background-color: #1588d9;
-}
-.hero-right {
-    display: inline-block;
-    width: 50%;
-    height: 100%;
-    vertical-align: middle;
-    text-align: right;
+
+.hero-left h1 {
+    font-size: 40px;
+    line-height: 1.3;
+    color: var(--text-main);
 }
 .hero-left p {
-    color: #8fa0af;
+    color: var(--text-muted);
     font-size: 18px;
     line-height: 1.6;
+    margin-top: 20px;
     margin-bottom: 40px;
     max-width: 90%;
 }
-.hero-left {
-    display: inline-block;
-    width: 48%;
-    height: 100%;
-    vertical-align: middle;
-    padding-top: 12vh; 
+
+.cta-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    box-shadow: 0px 4px 15px rgba(28, 163, 255, 0.3);
+
+
 }
+
+.highlight {
+    color: var(--primary-color);
+}
+
+
+.cta-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.hero-right {
+    width: 50%;
+    text-align: right;
+}
+
 .hero-right img {
     max-width: 90%;
-    max-height: 80vh; 
+    max-height: 80vh;
     margin-top: 4vh;
 }
-@media(min-width:650px)and (max-width:1350px){
-    display:100% ;
-    .navbar{
-        width: 100%;
-        flex-direction: column;
-        align-items: last baseline;
+
+/* ======= ==================
+   TABLET VIEW (650px – 1350px)
+   ========================= */
+@media (min-width: 650px) and (max-width: 1350px) {
+
+    .navbar {
+
+        padding: 15px 30px;
+        font-size: 16px;             
     }
-        .hero-left{
-            align-items: center;
-        }
-        .h1{
-            align-items: start;
-        }
+
+    .hero {
+        padding: 20px 5vw;
+
+        gap: 20px;
+    }
+
+    .hero-left h1 {
+        font-size: 32px;
+    }
+
+    .hero-left p {
+        font-size: 16px;
+    }
+
+    .hero-right img {
+        max-width: 100%;
+        max-height: 60vh;
+    }
 }
-@media(width<:650px){
-.navbar {
+
+/* =========================
+   MOBILE VIEW (< 650px)
+   ========================= */
+@media (max-width: 650px) {
+
+    /* Navbar stacked */
+    .navbar {
+        flex-direction: column;
+        align-items: center;
         padding: 15px 20px;
-        text-align: center;
+        font-size: 16px;
+        gap: 10px;
     }
-
-    .nav-logo,
-    .nav-links,
-    .nav-user {
-        width: 100%;
-        display: block;
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    .nav-links li {
-        display: block;
-        margin: 12px 0;
-    }
-
-    .username-btn {
+   .username-btn {
         padding: 10px 20px;
         font-size: 14px;
     }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+ 
+    /* Hero becomes column */
     .hero {
         height: auto;
         padding: 30px 20px;
+        flex-direction: column;    
+        align-items: center;
         text-align: center;
     }
 
-    .hero-left,
+  
+    .hero-right img {
+        max-width: 100%;
+        max-height: 50vh;
+        margin-top: 20px;
+    }
+      .hero-left,
     .hero-right {
         width: 100%;
-        display: block;
-        height: auto;
-        padding: 0;
     }
 
-    .hero-left {
-        padding-top: 40px;
+    .hero-left h1 {
+        font-size: 28px;
     }
 
     .hero-left p {
@@ -154,9 +225,4 @@
         margin-bottom: 25px;
     }
 
-    .hero-right img {
-        max-width: 100%;
-        max-height: 50vh;
-        margin-top: 20px;
-    }
 }
